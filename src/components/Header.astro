@@ -1,0 +1,44 @@
+<header class="text-gray-300 body-font">
+    <div class="container flex flex-wrap p-5 flex-col md:flex-row items-center justify-center bg-transparent">
+      <nav class="flex flex-wrap items-center text-base justify-center">
+        <a href="/" id="firstLink" class="mr-5 transition-all duration-300 ease-in-out">Sobre mi</a>
+        <a href="/projects" id="secondLink" class="mr-5 transition-all duration-300 ease-in-out">Mis proyectos</a>
+        <a href="/cursos" id="thirdLink" class="mr-5 transition-all duration-300 ease-in-out">Third Link</a>
+        <a href="/fourth" id="fourthLink" class="mr-5 transition-all duration-300 ease-in-out">Fourth Link</a>
+      </nav>
+    </div>
+  </header>
+  
+  <script>
+    const links = document.querySelectorAll('nav a');
+  
+    // Function to update the active link
+    function setActiveLink(activeLinkId) {
+      links.forEach(link => {
+        if (link.id === activeLinkId) {
+          link.classList.add('text-rose-500', 'border-b-2', 'border-rose-500');
+          link.classList.remove('text-gray-300');
+        } else {
+          link.classList.remove('text-rose-500', 'border-b-2', 'border-rose-500');
+          link.classList.add('text-gray-300');
+        }
+      });
+    }
+  
+    // Load the active link from localStorage
+    const activeLinkId = localStorage.getItem('activeLinkId');
+    if (activeLinkId) {
+      setActiveLink(activeLinkId);
+    }
+  
+    // Event listeners for each link
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement; // Type assertion
+        const targetId = target.id; // Get the ID of the clicked link
+        localStorage.setItem('activeLinkId', targetId); // Save the active link ID to localStorage
+        setActiveLink(targetId); // Update the active link
+      });
+    });
+  </script>
+  

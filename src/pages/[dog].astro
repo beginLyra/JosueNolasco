@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+export function getStaticPaths() {
+  return [
+    {params: {dog: 'projects'}},
+    {params: {dog: 'cursos'}},
+    {params: {dog: 'spot'}},
+  ];
+}
+
+const { dog } = Astro.params;
+---
+
+<Layout title={`Welcome to Astro - ${dog}`}>
+  <div>
+    {(() => {
+      switch (dog) {
+        case 'projects':
+          return <Card/>;
+        case 'cursos':
+          return <div>¡Aquí está Rover, tu amigo fiel!</div>;
+        case 'spot':
+          return <div>¡Spot está listo para jugar!</div>;
+        default:
+          return <div>¡Buen chico, {dog}!</div>;
+      }
+    })()}
+  </div>
+</Layout>

@@ -1,61 +1,40 @@
----
-interface Props {
-	title: string;
-	body: string;
-	href: string;
-}
-
-const { href, title, body } = Astro.props;
----
-
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
+<section class="text-gray-600 body-font opacity-0 translate-y-10 transition-opacity transition-transform duration-700" id="animated-section">
+	<div class="container px-5 py-24 mx-auto">
+	  <div class="flex flex-col text-center w-full mb-20">
+		<h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Master Cleanse Reliac Heirloom</h1>
+		<p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+		  Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. 
+		  Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.
 		</p>
-	</a>
-</li>
-<style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
-</style>
+	  </div>
+	  <div class="flex flex-wrap -m-4">
+		{[
+		  { src: "https://dummyimage.com/600x360", title: "Shooting Stars", subtitle: "THE SUBTITLE", description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat." },
+		  { src: "https://dummyimage.com/601x361", title: "The Catalyzer", subtitle: "THE SUBTITLE", description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat." },
+		  { src: "https://dummyimage.com/603x363", title: "The 400 Blows", subtitle: "THE SUBTITLE", description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat." },
+		  { src: "https://dummyimage.com/602x362", title: "Neptune", subtitle: "THE SUBTITLE", description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat." },
+		  { src: "https://dummyimage.com/605x365", title: "Holden Caulfield", subtitle: "THE SUBTITLE", description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat." },
+		  { src: "https://dummyimage.com/606x366", title: "Alper Kamu", subtitle: "THE SUBTITLE", description: "Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat." },
+		].map(item => (
+		  <div class="lg:w-1/3 sm:w-1/2 p-4">
+			<div class="flex relative">
+			  <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src={item.src}>
+			  <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100 transition-opacity duration-300">
+				<h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">{item.subtitle}</h2>
+				<h1 class="title-font text-lg font-medium text-gray-900 mb-3">{item.title}</h1>
+				<p class="leading-relaxed">{item.description}</p>
+			  </div>
+			</div>
+		  </div>
+		))}
+	  </div>
+	</div>
+  </section>
+  
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const section = document.getElementById('animated-section');
+	  section.classList.remove('opacity-0', 'translate-y-10');
+	});
+  </script>
+  
