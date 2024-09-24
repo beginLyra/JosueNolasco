@@ -3,28 +3,62 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 export function getStaticPaths() {
   return [
-    {params: {dog: 'projects'}},
-    {params: {dog: 'cursos'}},
-    {params: {dog: 'spot'}},
+    { params: { dog: 'projects' } },
+    { params: { dog: 'cursos' } },
+    { params: { dog: 'spot' } },
   ];
 }
 
 const { dog } = Astro.params;
+
+import { getCollection } from 'astro:content';
+interface Project {
+  slug: string;
+  data: {
+    title: string;
+    description: string;
+    icon: string;
+  };
+}
+const projects: Project[] = await getCollection('projects');
+
+// Imprimir los proyectos en la consola
+console.log('Proyectos:', projects);
+
 ---
 
 <Layout title={`Welcome to Astro - ${dog}`}>
   <div>
-    {(() => {
-      switch (dog) {
-        case 'projects':
-          return <Card/>;
-        case 'cursos':
-          return <div>¡Aquí está Rover, tu amigo fiel!</div>;
-        case 'spot':
-          return <div>¡Spot está listo para jugar!</div>;
-        default:
-          return <div>¡Buen chico, {dog}!</div>;
-      }
-    })()}
+    {dog === 'projects' && (
+<div class="flex flex-col-3 flex-wrap justify-center opacity-0 translate-y-10 transition-opacity transition-transform duration-700 " id="animated-section">
+      
+      {projects.map((project) => (
+        <Card 
+          title={project.data.title}
+          description={project.data.description}
+          icon={project.data.icon}
+        />
+      ))}
+  
+  
+</div>
+
+
+     
+    )}
+
+    {dog === 'cursos' && <div>¡Aquí está Rover, tu amigo fiel!</div>}
+
+    {dog === 'spot' && <div>¡Spot está listo para jugar!</div>}
+
+    {dog !== 'projects' && dog !== 'cursos' && dog !== 'spot' && (
+      <div>¡Buen chico, {dog}!</div>
+    )}
   </div>
 </Layout>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const section = document.getElementById('animated-section');
+	  section.classList.remove('opacity-0', 'translate-y-10');
+	});
+  </script>
