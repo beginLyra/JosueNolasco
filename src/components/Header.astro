@@ -3,15 +3,39 @@
     <!-- Logo or Name -->
     <div class="flex items-center">
       <!-- <img src="logo.png" alt="Logo" class="h-10 mr-3"> Asegúrate de tener la imagen en tu carpeta -->
-      <span class="text-rose-500 font-bold text-4xl">Mi Portafolio</span>
+      <span class="text-rose-500 font-bold text-4xl"><div class="flex items-center gap-4">
+        <img class="w-10 h-10 rounded-full" src="https://previews.123rf.com/images/jemastock/jemastock1712/jemastock171209574/91945368-dise%C3%B1o-gr%C3%A1fico-del-ejemplo-del-vector-del-icono-del-avatar-del-perfil-de-la-mujer-de-negocios.jpg" alt="">
+        <div class="font-medium dark:text-white">
+            <div>Josue Nolasco</div>
+            <div class="text-sm text-gray-500 dark:text-gray-400">Tegucigalpa,Honduras</div>
+        </div>
+    </div></span>
     </div>
-
-    <nav class="flex flex-wrap items-center text-base justify-center">
+ <!-- Hamburger Menu for Small Screens -->
+ <div class="md:hidden">
+  <button id="menu-btn" class="text-gray-300 focus:outline-none">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+</div>
+    <nav class=" hidden md:flex flex-wrap items-center text-base justify-center">
       <a href="/" id="firstLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Sobre mí</a>
       <a href="/projects" id="secondLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Mis proyectos</a>
       <a href="/cursos" id="thirdLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Cursos</a>
       <a href="/fourth" id="fourthLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Contacto</a>
     </nav>
+  </div>
+
+  <!-- Sidebar Menu for Small Screens -->
+  <div id="sidebar" class="fixed inset-0 bg-gray-800 bg-opacity-90 z-50 hidden transform -translate-x-full transition-transform duration-500 ease-in-out">
+    <div class="flex flex-col items-center justify-center h-full space-y-5 text-gray-300 text-xl">
+      <a href="/" class="transition-all duration-300 ease-in-out hover:text-rose-500">Sobre mí</a>
+      <a href="/projects" class="transition-all duration-300 ease-in-out hover:text-rose-500">Mis proyectos</a>
+      <a href="/cursos" class="transition-all duration-300 ease-in-out hover:text-rose-500">Cursos</a>
+      <a href="/fourth" class="transition-all duration-300 ease-in-out hover:text-rose-500">Contacto</a>
+      <button id="close-btn" class="text-gray-300 focus:outline-none mt-10">Cerrar</button>
+    </div>
   </div>
 </header>
 
@@ -48,5 +72,25 @@
       localStorage.setItem('activeLinkId', targetId); // Save the active link ID to localStorage
       setActiveLink(targetId); // Update the active link
     });
+  });
+
+  //para slide
+  const menuBtn = document.getElementById('menu-btn');
+  const sidebar = document.getElementById('sidebar');
+  const closeBtn = document.getElementById('close-btn');
+
+  menuBtn.addEventListener('click', () => {
+    // Asegúrate de que el sidebar esté visible antes de la animación
+    sidebar.classList.remove('hidden');
+    setTimeout(() => {
+      sidebar.classList.remove('-translate-x-full');
+    }, 10); // Pequeño retraso para permitir que la animación se inicie correctamente
+  });
+
+  closeBtn.addEventListener('click', () => {
+    sidebar.classList.add('-translate-x-full');
+    setTimeout(() => {
+      sidebar.classList.add('hidden');
+    }, 500); // Espera la duración de la animación antes de ocultarlo completamente
   });
 </script>

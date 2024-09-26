@@ -22,8 +22,6 @@ interface Project {
 }
 const projects: Project[] = await getCollection('projects');
 
-// Imprimir los proyectos en la consola
-console.log('Proyectos:', projects);
 
 ---
 
@@ -37,6 +35,7 @@ console.log('Proyectos:', projects);
           title={project.data.title}
           description={project.data.description}
           icon={project.data.icon}
+          href={`/${project.slug}`}
         />
       ))}
   
