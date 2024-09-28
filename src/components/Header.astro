@@ -1,39 +1,41 @@
 <header class="text-gray-300 text-3xl p-5 bg-transparent ">
-  <div class="container flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+  <div class=" grid  p-5  grid-cols-2  ">
     <!-- Logo or Name -->
     <div class="flex items-center">
       <!-- <img src="logo.png" alt="Logo" class="h-10 mr-3"> Asegúrate de tener la imagen en tu carpeta -->
       <span class="text-rose-500 font-bold text-4xl"><div class="flex items-center gap-4">
         <img class="w-10 h-10 rounded-full" src="https://previews.123rf.com/images/jemastock/jemastock1712/jemastock171209574/91945368-dise%C3%B1o-gr%C3%A1fico-del-ejemplo-del-vector-del-icono-del-avatar-del-perfil-de-la-mujer-de-negocios.jpg" alt="">
         <div class="font-medium dark:text-white">
-            <div>Josue Nolasco</div>
+            <div class="animated-text">Josue Nolasco</div>
             <div class="text-sm text-gray-500 dark:text-gray-400">Tegucigalpa,Honduras</div>
         </div>
     </div></span>
     </div>
  <!-- Hamburger Menu for Small Screens -->
- <div class="md:hidden">
-  <button id="menu-btn" class="text-gray-300 focus:outline-none">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-  </button>
+ <div class="lg:hidden  flex items-center justify-end   ">
+ <div class="flex justify-end"> <button id="menu-btn" class="text-gray-300 focus:outline-none ">
+  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+</button></div>
 </div>
-    <nav class=" hidden md:flex flex-wrap items-center text-base justify-center">
+    <nav class=" w-full hidden lg:flex  items-center text-base justify-end">
       <a href="/" id="firstLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Sobre mí</a>
       <a href="/projects" id="secondLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Mis proyectos</a>
-      <a href="/cursos" id="thirdLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Cursos</a>
-      <a href="/fourth" id="fourthLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Contacto</a>
+      <a href="/courses" id="thirdLink" class=" mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Mis diplomas </a>
+      <a href="/hardskill" id="fourthLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Habilidades</a>
     </nav>
   </div>
 
   <!-- Sidebar Menu for Small Screens -->
   <div id="sidebar" class="fixed inset-0 bg-gray-800 bg-opacity-90 z-50 hidden transform -translate-x-full transition-transform duration-500 ease-in-out">
-    <div class="flex flex-col items-center justify-center h-full space-y-5 text-gray-300 text-xl">
-      <a href="/" class="transition-all duration-300 ease-in-out hover:text-rose-500">Sobre mí</a>
-      <a href="/projects" class="transition-all duration-300 ease-in-out hover:text-rose-500">Mis proyectos</a>
-      <a href="/cursos" class="transition-all duration-300 ease-in-out hover:text-rose-500">Cursos</a>
-      <a href="/fourth" class="transition-all duration-300 ease-in-out hover:text-rose-500">Contacto</a>
+    <div class="flex flex-col items-center justify-center h-full space-y-5 text-gray-300 text-xl roro">
+      <a href="/" id="firstLink" class="transition-all duration-300 ease-in-out hover:text-rose-700">Sobre mí</a>
+      <a href="/projects" id="secondLink" class="transition-all duration-300 ease-in-out hover:text-rose-700">Mis proyectos</a>
+      <a href="/courses" id="thirdLink" class=" transition-all duration-300 ease-in-out hover:text-rose-700">Mis diplomas</a>
+      <a href="/hardskill" id="fourthLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Habilidades</a>
+
+      <!-- <a href="/fourth" class="transition-all duration-300 ease-in-out hover:text-rose-500">Contacto</a> -->
       <button id="close-btn" class="text-gray-300 focus:outline-none mt-10">Cerrar</button>
     </div>
   </div>
@@ -42,6 +44,8 @@
 
 <script>
   const links = document.querySelectorAll('nav a');
+  const links2 = document.querySelectorAll('div.flex-col a');
+console.log(links2)
 
   // Function to update the active link
   function setActiveLink(activeLinkId) {
@@ -56,12 +60,25 @@
     });
   }
 
+  // Function to update the active link
+  function setActiveLink2(activeLinkId) {
+    links2.forEach(link => {
+      if (link.id === activeLinkId) {
+        link.classList.add('text-rose-500', 'border-b-2', 'border-rose-500');
+        link.classList.remove('text-gray-300');
+      } else {
+        link.classList.remove('text-rose-500', 'border-b-2', 'border-rose-500');
+        link.classList.add('text-gray-300');
+      }
+    });
+  }
   // Load the active link from localStorage or set "Sobre mí" as the default
   let activeLinkId = localStorage.getItem('activeLinkId');
   if (!activeLinkId) {
     activeLinkId = 'firstLink'; // Default to "Sobre mí"
   }
   setActiveLink(activeLinkId);
+  setActiveLink2(activeLinkId);
 
   // Event listeners for each link
   links.forEach(link => {
@@ -71,6 +88,17 @@
       const targetId = target.id; // Get the ID of the clicked link
       localStorage.setItem('activeLinkId', targetId); // Save the active link ID to localStorage
       setActiveLink(targetId); // Update the active link
+    });
+  });
+
+  // Event listeners for each link
+  links2.forEach(links => {
+    links.addEventListener('click', (e) => {
+      
+      const target = e.target as HTMLElement; // Type assertion
+      const targetId = target.id; // Get the ID of the clicked link
+      localStorage.setItem('activeLinkId', targetId); // Save the active link ID to localStorage
+      setActiveLink2(targetId); // Update the active link
     });
   });
 
@@ -94,3 +122,27 @@
     }, 500); // Espera la duración de la animación antes de ocultarlo completamente
   });
 </script>
+<style>
+  .animated-text {
+  
+    display: inline-block; /* Permite que el tamaño del div se ajuste al contenido */
+    background: linear-gradient(270deg, #ff0000, #ff7300, #ffeb3b, #69ff7b, #00bfff, #9c27b0);
+    background-size: 400%; /* Tamaño del fondo del degradado */
+    -webkit-background-clip: text; /* Aplica el degradado solo al texto */
+    -webkit-text-fill-color: transparent; /* Hace que el texto sea transparente */
+    animation: gradient-animation 5s ease infinite; /* Animación del degradado */
+    position: relative; /* Mantiene el contexto de posición */
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%; /* Inicio del degradado */
+    }
+    50% {
+        background-position: 100% 50%; /* Mitad de la animación */
+    }
+    100% {
+        background-position: 0% 50%; /* Fin del degradado */
+    }
+}
+</style>

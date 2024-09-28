@@ -4,8 +4,9 @@ import Card from '../components/Card.astro';
 export function getStaticPaths() {
   return [
     { params: { dog: 'projects' } },
-    { params: { dog: 'cursos' } },
-    { params: { dog: 'spot' } },
+    { params: { dog: 'courses' } },
+    { params: { dog: 'hardskill' } },
+  
   ];
 }
 
@@ -21,15 +22,25 @@ interface Project {
   };
 }
 const projects: Project[] = await getCollection('projects');
+const skillsData = [
+    { "nombre": "Tailwind CSS", "descripcion": "Usado en el proyecto BidCraft." },
+    { "nombre": "React", "descripcion": "Usado en el proyecto BidCraft." },
+    { "nombre": "JavaScript", "descripcion": "Usado en el proyecto Réplica de Uber." },
+    { "nombre": "Laravel", "descripcion": "Usado en el proyecto Sport Blog." },
+    { "nombre": "Bootstrap", "descripcion": "Usado en los proyectos Sport Blog y Réplica de Uber." },
+    { "nombre": "Django", "descripcion": "Usado en el proyecto BidCraft." },
+    { "nombre": "PostgreSQL", "descripcion": "Usado en los proyectos Sport Blog y BidCraft." }
+];
 
 
 ---
 
 <Layout title={`Welcome to Astro - ${dog}`}>
+  
   <div>
+
     {dog === 'projects' && (
-<div class="flex flex-col-3 flex-wrap justify-center opacity-0 translate-y-10 transition-opacity transition-transform duration-700 " id="animated-section">
-      
+<div class="flex flex-col-3 flex-wrap justify-center opacity-0 translate-y-10 + transition-transform duration-700 " id="animated-section">
       {projects.map((project) => (
         <Card 
           title={project.data.title}
@@ -38,20 +49,44 @@ const projects: Project[] = await getCollection('projects');
           href={`/${project.slug}`}
         />
       ))}
-  
-  
 </div>
-
-
-     
     )}
 
-    {dog === 'cursos' && <div>¡Aquí está Rover, tu amigo fiel!</div>}
 
-    {dog === 'spot' && <div>¡Spot está listo para jugar!</div>}
+    {dog === 'courses' &&
+     <div>
+<script>
+window.location.href = '/certificates';
+</script>
+    </div>}
 
-    {dog !== 'projects' && dog !== 'cursos' && dog !== 'spot' && (
-      <div>¡Buen chico, {dog}!</div>
+
+{dog === 'hardskill' && <div>
+  <div id="animated-section" class="translate-y-10 + transition-transform duration-700">  <!-- Contenedor Principal -->
+    <div class="max-w-4xl mx-auto mt-10">
+
+        <!-- Título -->
+        <h1 class="text-4xl font-bold text-center text-green-500 mb-10">Mis Hard Skills</h1>
+
+        <!-- Lista de Habilidades -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+           
+          {skillsData.map((item, index) => (
+  <div class="bg-[#8d2e590c] rounded-lg shadow-lg p-6">
+    <h2 class="text-xl font-semibold text-white mb-2">{item.nombre}</h2>
+    <p class="text-gray-400">Usado en el proyecto <strong>{item.descripcion.split(" ").slice(2).join(" ")}</strong>.</p>
+  </div>
+))}
+
+           
+        </div>
+    </div>
+    </div>
+      </div>}
+
+    {dog !== 'projects' && dog !== 'courses' && dog !== 'hardskill' && (
+      <div>Ruta no encontrada</div>
     )}
   </div>
 </Layout>
