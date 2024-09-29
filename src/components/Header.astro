@@ -4,10 +4,11 @@
     <div class="flex items-center">
       <!-- <img src="logo.png" alt="Logo" class="h-10 mr-3"> Asegúrate de tener la imagen en tu carpeta -->
       <span class="text-rose-500 font-bold text-4xl"><div class="flex items-center gap-4">
-        <img class="w-10 h-10 rounded-full" src="https://previews.123rf.com/images/jemastock/jemastock1712/jemastock171209574/91945368-dise%C3%B1o-gr%C3%A1fico-del-ejemplo-del-vector-del-icono-del-avatar-del-perfil-de-la-mujer-de-negocios.jpg" alt="">
+        <img class="w-10 h-10 rounded-full" src="/img/avatar_josue.png" alt="">
         <div class="font-medium dark:text-white">
-            <div class="animated-text">Josue Nolasco</div>
-            <div class="text-sm text-gray-500 dark:text-gray-400">Tegucigalpa,Honduras</div>
+            <div class="animated-text  hidden sm:flex">Josue Nolasco</div>
+            <div  class="animated-text  flex sm:hidden">JN</div>
+            <div class="hidden sm:flex text-sm text-gray-500 dark:text-gray-400">Tegucigalpa,Honduras</div>
         </div>
     </div></span>
     </div>
@@ -33,7 +34,7 @@
       <a href="/" id="firstLink" class="transition-all duration-300 ease-in-out hover:text-rose-700">Sobre mí</a>
       <a href="/projects" id="secondLink" class="transition-all duration-300 ease-in-out hover:text-rose-700">Mis proyectos</a>
       <a href="/courses" id="thirdLink" class=" transition-all duration-300 ease-in-out hover:text-rose-700">Mis diplomas</a>
-      <a href="/hardskill" id="fourthLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Habilidades</a>
+      <a href="/hardskill" id="fourthLink" class="transition-all duration-300 ease-in-out hover:text-rose-700">Habilidades</a>
 
       <!-- <a href="/fourth" class="transition-all duration-300 ease-in-out hover:text-rose-500">Contacto</a> -->
       <button id="close-btn" class="text-gray-300 focus:outline-none mt-10">Cerrar</button>
@@ -125,7 +126,7 @@ console.log(links2)
 <style>
   .animated-text {
   
-    display: inline-block; /* Permite que el tamaño del div se ajuste al contenido */
+ /* Permite que el tamaño del div se ajuste al contenido */
     background: linear-gradient(270deg, #ff0000, #ff7300, #ffeb3b, #69ff7b, #00bfff, #9c27b0);
     background-size: 400%; /* Tamaño del fondo del degradado */
     -webkit-background-clip: text; /* Aplica el degradado solo al texto */
