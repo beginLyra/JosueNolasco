@@ -1,25 +1,14 @@
 ---
+import { Image } from 'astro:assets';
 export interface Props {
   title: string;
   description: string;
   icon: string;
   href: String;
 }
-import { Image } from "astro:assets";
+
 const { title, description, icon, href } = Astro.props;
-import react from "../img/bidcraft/icons8-reaccionar-40.png";
-import django from "../img/bidcraft/icons8-django-48.png";
-import postgres from "../img/bidcraft/icons8-postgresql-48.png";
-import tailwind from "../img/bidcraft/icons8-viento-de-cola-css-48.png";
 
-import sprint from "../img/sportblog/1_i3gZBdrn_pk4PiyNahtm5Q.png";
-import laravel from "../img/sportblog/icons8-laravel-64.png";
-import mysql from "../img/sportblog/mysql.png"
-
-import js from "../img/ubereats/icons8-javascript-48.png";
-import php from "../img/ubereats/icons8-php-48.png";
-
-import bootstrap from "../img/sportblog/icons8-oreja-48.png";
 
 //probando algo
 const hrefString = String(href);
@@ -34,10 +23,12 @@ const hrefString = String(href);
           {
             title === "BidCraft" && (
               <>
-                <Image src={react} alt="Uayeb Caballero" />
-                <Image src={django} alt="Uayeb Caballero" />
-                <Image src={postgres} alt="Uayeb Caballero" />
-                <Image src={tailwind} alt="Uayeb Caballero" />
+                <Image src="/img/bidcraft/icons8-reaccionar-40.png" width={40} height={20} alt="Uayeb Caballero" />
+                <Image src="/img/bidcraft/icons8-django-48.png" width={40} height={20} alt="Uayeb Caballero" />
+                <Image src="/img/sportblog/mysql.png" width={40} height={20} alt="Uayeb Caballero" />
+                <Image src="/img/bidcraft/icons8-viento-de-cola-css-48.png" width={40} height={20} alt="Uayeb Caballero" />
+
+              
               </>
             )
           }
@@ -45,15 +36,12 @@ const hrefString = String(href);
           {
             title === "Sport Blog" && (
               <>
-                <Image
-                  src={sprint}
-                  alt="Uayeb Caballero"
-                  width={80}
-                  height={70}
-                />
-                <Image src={laravel} alt="Uayeb Caballero"  class="w-[48px] h-[48px]" />
-                <Image src={bootstrap} alt="Uayeb Caballero" />
-                <Image src={mysql} alt="Uayeb Caballero" class="w-[48px] h-[48px]" />
+                <Image src="/img/sportblog/1_i3gZBdrn_pk4PiyNahtm5Q.png" width={60} height={30} alt="Uayeb Caballero" />
+                <Image src="/img/sportblog/icons8-laravel-64.png" width={40} height={20} alt="Uayeb Caballero" />
+                <Image src="/img/bidcraft/icons8-reaccionar-40.png" width={40} height={20} alt="Uayeb Caballero" />
+                <Image src="/img/sportblog/icons8-oreja-48.png" width={40} height={20} alt="Uayeb Caballero" />
+
+               
     
               </>
             )
@@ -62,9 +50,10 @@ const hrefString = String(href);
           {
             title === "Uber Eats" && (
               <>
-                <Image src={bootstrap} alt="Uayeb Caballero" />
-                <Image src={js} alt="Uayeb Caballero" />
-                <Image src={php} alt="Uayeb Caballero" />
+           <Image src="/img/ubereats/icons8-javascript-48.png" width={40} height={20} alt="Uayeb Caballero" />
+                <Image src="/img/ubereats/icons8-php-48.png" width={40} height={20} alt="Uayeb Caballero" />
+                <Image src="/img/sportblog/icons8-oreja-48.png" width={40} height={20} alt="Uayeb Caballero" />
+
               </>
             )
           }

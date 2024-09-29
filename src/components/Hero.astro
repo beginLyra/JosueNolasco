@@ -1,7 +1,5 @@
 ---
-import espanol from "../img/idiomasicons/espana.png"
-import ingles from "../img/idiomasicons/reino-unido.png"
-import Image from "astro/components/Image.astro"
+import { Image } from 'astro:assets';
 ---
 <div id="animated-section" class="p-10 md:p-0 flex items-center justify-center bg-gray-900 opacity-0 translate-y-10  transition-transform duration-700" id="animated-section">
   <div class="grid lg:grid-cols-2 grid-cols-1 items-center  gap-10 md:px-10">
@@ -12,14 +10,13 @@ import Image from "astro/components/Image.astro"
 
             <div class="flex flex-col w-full items-center sm:items-start justify-center gap-1 rounded-2xl p-5 py-3 font-semibold text-white bg-rose-700">
               <div class="text-green-500">IDIOMAS</div>
-          
               <div class="flex items-center gap-2">
-                <Image src={espanol} width={30} height={30} alt="Uayeb Caballero" />
-                <div>Español: Nativo</div>
+                <Image src="/img/idiomas/reino-unido.png" width={30} height={30} alt="Uayeb Caballero" />
+                <div>Inglés: Intermedio</div>
               </div>
           
               <div class="flex items-center gap-2">
-                <Image src={ingles} width={30} height={30} alt="Uayeb Caballero" />
+                <Image src="/img/idiomas/espana.png" width={30} height={30} alt="Uayeb Caballero" />
                 <div>Inglés: Intermedio</div>
               </div>
             </div>
