@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+
+import { getCollection } from 'astro:content';
+interface Project {
+  slug: string;
+  data: {
+    title: string;
+    description: string;
+    icon: string;
+  };
+}
+const projects: Project[] = await getCollection('projects');
+---
+<Layout title={`Welcome to Astro `}>
+    <div class="flex flex-col-3 flex-wrap justify-center  translate-y-10 + transition-transform duration-700 " id="animated-section">
+        {projects.map((project) => (
+          <Card 
+            title={project.data.title}
+            description={project.data.description}
+            icon={project.data.icon}
+            href={`/${project.slug}`}
+          />
+        ))}
+    </div>
+
+</Layout>
