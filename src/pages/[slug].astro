@@ -81,3 +81,9 @@ const { Content, headings } = await entry.render();
   .prose th { @apply bg-orange-100 font-semibold; }
 </style>
 
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  const section = document.getElementById('animated-section');
+	  section.classList.remove('opacity-0', 'translate-y-10');
+	});
+  </script>
