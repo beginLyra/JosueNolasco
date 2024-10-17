@@ -1,0 +1,44 @@
+---
+title: "Sistema Contable"
+description: "Automatización y despliegue de infraestructura contable en la nube"
+icon: "📊"
+img: "/img/Arquitectura_Contable.png"
+---
+
+# Sistema Contable (Proyecto de Infraestructura en la Nube, 2024)
+**Descripción:** El sistema contable automatiza la gestión de datos financieros utilizando infraestructura como código (IaC) con Terraform. Permite la creación y configuración rápida de recursos como bases de datos, redes, y aplicaciones en la nube, garantizando seguridad y escalabilidad.
+
+## Propósito del Sistema Contable
+El sistema contable tiene como objetivo simplificar y automatizar la gestión de transacciones financieras, asegurando que los datos sean accesibles y seguros. La solución se basa en Terraform para proporcionar una infraestructura escalable y flexible, que permite:
+- **Automatización del Despliegue:** Configuración rápida y repetible de recursos mediante archivos de configuración.
+- **Escalabilidad y Flexibilidad:** Ajuste dinámico de recursos según las necesidades de la empresa.
+- **Seguridad:** Implementación de redes seguras y almacenamiento protegido para garantizar la confidencialidad de los datos financieros.
+- **Integración y Mantenimiento:** Fácil integración con otras aplicaciones contables y monitoreo continuo de la infraestructura.
+
+## Pasos para el Despliegue del Sistema Contable
+
+1. **Configuración del Entorno Local:**
+   - Instala Terraform y configura las credenciales para el proveedor de servicios en la nube.
+   - Define variables y configuraciones en `variable.tf` para su personalizacion. 
+
+2. **Inicialización y Planificación:**
+   - Ejecuta `terraform init` para inicializar el proyecto.
+   - Utiliza `terraform plan` para generar un plan de despliegue y verificar la configuración.
+
+3. **Despliegue de la Infraestructura:**
+   - Ejecuta `terraform apply` para crear los recursos definidos.
+   - Verifica que todos los servicios se hayan desplegado correctamente.
+
+4. **Gestión del Estado y Mantenimiento:**
+   - Terraform gestiona el estado de los recursos en `terraform.tfstate`.
+   - Para futuras actualizaciones, modifica los archivos de configuración y repite el proceso de planificación y aplicación.
+
+
+## Tecnologías
+- **Infraestructura:** Terraform
+- **Proveedor de la Nube:** Azure (u otros proveedores compatibles)
+- **Recursos:** Redes, Bases de Datos, Almacenamiento, Aplicaciones Web
+
+**Metodología:** Uso de Infraestructura como Código (IaC) para una gestión eficiente y automatizada de la infraestructura.
+
+**Repositorio:** https://github.com/beginLyra/Terraform.git
