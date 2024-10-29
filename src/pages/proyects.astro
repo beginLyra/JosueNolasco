@@ -14,14 +14,14 @@ interface Project {
 }
 const projects: Project[] = await getCollection('projects');
 ---
-<Layout title={`Welcome to Astro `}>
+<Layout title={`Josue Nolasco`}>
     <div class="flex flex-col-3 flex-wrap justify-center  translate-y-10 + transition-transform duration-700 " id="animated-section">
         {projects.map((project) => (
           <Card 
             title={project.data.title}
             description={project.data.description}
             icon={project.data.icon}
-            href={`/${project.slug}`}
+            href={`/projects/${project.slug}`}
           />
         ))}
     </div>
