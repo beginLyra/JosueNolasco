@@ -49,14 +49,17 @@ const { Content, headings } = await entry.render();
             {headings.map((heading) => (
                 <li class={`toc-level-${heading.depth} ml-${(heading.depth - 1) * 4}`}>
                     <a href={`#${heading.slug}`} class="text-gray-200 hover:text-orange-500 transition-colors duration-200 ease-in-out">
+                     
                         {heading.text}
                     </a>
+                    
                 </li>
             ))}
         </ul>
     </nav>
 
     <article class="prose prose-orange lg:prose-lg max-w-none">
+
         <Content />
     </article>
   <div>
