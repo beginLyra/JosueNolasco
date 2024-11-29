@@ -1,0 +1,68 @@
+---
+title: "Sistema de Activación de Cuentas con Manejo de Colas"
+description: "Proyecto universitario que automatiza la activación de cuentas mediante colas y servicios en la nube."
+icon: "📧"
+---
+
+# Sistema de Activación de Cuentas con Manejo de Colas
+
+Este proyecto es una solución moderna y automatizada para gestionar la activación de cuentas de usuario, diseñada para proporcionar una experiencia fluida y eficiente. Aprovechando colas, servicios en la nube y tecnologías avanzadas, el sistema maneja de manera asíncrona la generación y envío de códigos de activación, garantizando un alto grado de confiabilidad y escalabilidad.
+
+---
+
+## **¿De qué trata este proyecto?**
+El objetivo principal es automatizar el proceso de activación de cuentas mediante la integración de servicios como Azure Queue Storage, SendGrid y una Function App que actúa como worker. Este worker procesa las tareas en cola, asegurando la generación de códigos únicos y el envío oportuno de correos electrónicos.
+
+### **Flujo general del sistema:**
+1. **Registro del usuario:** El usuario introduce su dirección de correo al registrarse.
+2. **Procesamiento en cola:** La dirección de correo electrónico se almacena en Azure Queue Storage.
+3. **Worker (Function App):** 
+   - Lee los mensajes en cola.
+   - Genera los códigos de activación.
+   - Envía correos electrónicos utilizando SendGrid.
+4. **Validación del código:** El sistema valida el código ingresado y activa la cuenta del usuario.
+
+### **Manejo de casos adicionales:**
+- Redirección a la página de activación si el usuario intenta iniciar sesión sin activar su cuenta.
+- Reenvío automático de códigos en caso de expiración, reinsertando el correo en la cola y generando un nuevo código.
+
+---
+
+## **Funcionalidades principales:**
+- **Automatización del flujo de activación:** Desde el registro hasta la validación.
+- **Gestión de errores y expiración:** Reenvío de códigos y mensajes amigables para el usuario.
+- **Interfaz interactiva:** Pantallas de registro, inicio de sesión y activación.
+- **Notificaciones confiables:** Envío de correos electrónicos  utilizando SendGrid.
+
+---
+
+## **Tecnologías utilizadas:**
+### **Frontend:**
+- **Framework:** Node.js.
+- **Estilización:** Tailwind CSS para un diseño moderno y responsivo.
+### **Backend:**
+- **Framework:** FastAPI (Python), ideal para construir APIs rápidas y escalables.
+- **Servicios adicionales:**
+  - **Azure Queue Storage:** Para manejo eficiente de colas.
+  - **SendGrid:** Para el envío de correos electrónicos y videos.
+  - **Azure Function App:** Actúa como worker para procesar colas y realizar tareas automatizadas.
+- **Base de datos:** Azure SQL.
+
+---
+
+## **Despliegue:**
+- **Frontend y Backend:** Desplegados en Azure, garantizando alto rendimiento y confiabilidad.
+- **Correo electrónico y videos:** Integrados con SendGrid para un envío rápido y seguro.
+
+---
+
+## **Repositorio del proyecto:**
+- **API:** [https://github.com/beginLyra/backendAzure](https://github.com/beginLyra/backendAzure)
+- **UI:** [https://github.com/beginLyra/front_azure](https://github.com/beginLyra/front_azure)
+- **Function App:** [https://github.com/beginLyra/Qeue](https://github.com/beginLyra/Qeue)
+- **Objetos de BD:** [https://github.com/beginLyra/BD](https://github.com/beginLyra/BD)
+
+---
+
+## **Objetivo del proyecto:**
+Ofrecer un sistema integral de activación de cuentas que combine automatización, usabilidad y escalabilidad. Con el uso de tecnologías como colas y servicios en la nube, el sistema garantiza una experiencia de usuario confiable y enriquecedora, desde la activación de cuentas hasta la entrega de contenido adicional.
