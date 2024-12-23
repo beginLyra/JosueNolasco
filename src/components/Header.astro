@@ -1,3 +1,4 @@
+
 <header class="text-gray-300 text-3xl p-5 bg-transparent ">
   <div class=" grid  p-5  grid-cols-2  ">
     <!-- Logo or Name -->
@@ -73,14 +74,19 @@ console.log(links2)
       }
     });
   }
+ 
   // Load the active link from localStorage or set "Sobre mí" as the default
   let activeLinkId = localStorage.getItem('activeLinkId');
   if (!activeLinkId) {
+  if (window.location.pathname !== '/') {
+    window.location.href = '/'; 
+  } else {
     activeLinkId = 'firstLink'; // Default to "Sobre mí"
   }
-  setActiveLink(activeLinkId);
-  setActiveLink2(activeLinkId);
-
+}
+setActiveLink(activeLinkId);
+setActiveLink2(activeLinkId);
+ 
   // Event listeners for each link
   links.forEach(link => {
     link.addEventListener('click', (e) => {
