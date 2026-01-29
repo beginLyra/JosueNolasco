@@ -1,155 +1,147 @@
 
 <header class="text-gray-300 text-3xl p-5 bg-transparent ">
-  <div class=" grid  p-5  grid-cols-2  ">
+  <div class=" grid p-2 sm:p-5 grid-cols-2">
     <!-- Logo or Name -->
     <div class="flex items-center">
-      <!-- <img src="logo.png" alt="Logo" class="h-10 mr-3"> Asegúrate de tener la imagen en tu carpeta -->
-      <span class="text-rose-500 font-bold text-4xl"><div class="flex items-center gap-4">
-        <img class="w-10 h-10 rounded-full" src="/img/avatar_josue.png" alt="">
-        <div class="font-medium dark:text-white">
-            <div class="animated-text  hidden sm:flex">Josue Nolasco</div>
-            <div  class="animated-text  flex sm:hidden">JN</div>
-            <div class="hidden sm:flex text-sm text-gray-500 dark:text-gray-400">Tegucigalpa,Honduras</div>
+      <span class="font-bold text-4xl">
+        <div class="flex items-center gap-4">
+          <img class="w-12 h-12 rounded-full border border-white/10" src="/img/avatar_josue.png" alt="Josue Avatar">
+          <div class="font-medium text-white">
+              <div class="animated-text hidden sm:flex">Josue Nolasco</div>
+              <div class="animated-text flex sm:hidden">JN</div>
+              <div class="hidden sm:flex text-sm text-gray-400">Tegucigalpa, Honduras</div>
+          </div>
         </div>
-    </div></span>
+      </span>
     </div>
- <!-- Hamburger Menu for Small Screens -->
- <div class="lg:hidden  flex items-center justify-end   ">
- <div class="flex justify-end"> <button id="menu-btn" class="text-gray-300 focus:outline-none ">
-  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-  </svg>
-</button></div>
-</div>
-    <nav class=" w-full hidden lg:flex  items-center text-base justify-end">
-      <a href="/" id="firstLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Sobre mí</a>
-      <a href="/proyects" id="secondLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Mis proyectos</a>
-      <a href="/projects/certificates" id="thirdLink" class=" mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Mis diplomas </a>
-      <a href="/abilities" id="fourthLink" class="mr-5 px-4 py-2 transition-all duration-300 ease-in-out hover:text-rose-500">Habilidades</a>
+
+    <!-- Hamburger Menu for Small Screens -->
+    <div class="lg:hidden flex items-center justify-end">
+      <button id="menu-btn" class="text-gray-300 focus:outline-none hover:text-rose-500 transition-colors">
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="w-full hidden lg:flex items-center text-base justify-end">
+      <a href="/" id="firstLink" class="nav-link mr-5 px-4 py-2">Sobre mí</a>
+      <a href="/proyects" id="secondLink" class="nav-link mr-5 px-4 py-2">Mis proyectos</a>
+      <a href="/projects/certificates" id="thirdLink" class="nav-link mr-5 px-4 py-2">Mis diplomas</a>
+      <a href="/abilities" id="fourthLink" class="nav-link mr-5 px-4 py-2">Habilidades</a>
     </nav>
   </div>
 
   <!-- Sidebar Menu for Small Screens -->
-  <div id="sidebar" class="fixed inset-0 bg-gray-800 bg-opacity-90 z-50 hidden transform -translate-x-full transition-transform duration-500 ease-in-out">
-    <div class="flex flex-col items-center justify-center h-full space-y-5 text-gray-300 text-xl roro">
-      <a href="/" id="firstLink" class="transition-all duration-300 ease-in-out hover:text-rose-700">Sobre mí</a>
-      <a href="/proyects" id="secondLink" class="transition-all duration-300 ease-in-out hover:text-rose-700">Mis proyectos</a>
-      <a href="/projects/certificates" id="thirdLink" class=" transition-all duration-300 ease-in-out hover:text-rose-700">Mis diplomas</a>
-      <a href="/abilities" id="fourthLink" class="transition-all duration-300 ease-in-out hover:text-rose-700">Habilidades</a>
+  <div id="sidebar" class="fixed inset-0 bg-gray-900/95 backdrop-blur-md z-50 hidden transform -translate-x-full transition-transform duration-500 ease-in-out">
+    <div class="flex flex-col items-center justify-center h-full space-y-8 text-gray-300 text-2xl">
+      <a href="/" id="firstLink-mobile" class="mobile-nav-link">Sobre mí</a>
+      <a href="/proyects" id="secondLink-mobile" class="mobile-nav-link">Mis proyectos</a>
+      <a href="/projects/certificates" id="thirdLink-mobile" class="mobile-nav-link">Mis diplomas</a>
+      <a href="/abilities" id="fourthLink-mobile" class="mobile-nav-link">Habilidades</a>
 
-      <!-- <a href="/fourth" class="transition-all duration-300 ease-in-out hover:text-rose-500">Contacto</a> -->
-      <button id="close-btn" class="text-gray-300 focus:outline-none mt-10">Cerrar</button>
+      <button id="close-btn" class="text-rose-500 border border-rose-500/50 px-8 py-2 rounded-full focus:outline-none mt-10 hover:bg-rose-500 hover:text-white transition-all">
+        Cerrar
+      </button>
     </div>
   </div>
 </header>
 
-
 <script>
-  const links = document.querySelectorAll('nav a');
-  const links2 = document.querySelectorAll('div.flex-col a');
-console.log(links2)
+  const links = document.querySelectorAll('.nav-link');
+  const sidebarLinks = document.querySelectorAll('.mobile-nav-link');
 
-  // Function to update the active link
-  function setActiveLink(activeLinkId) {
+  function setActiveLinks() {
+    const currentPath = window.location.pathname;
+    
+    // Map paths to base IDs
+    const pathMap = {
+      '/': 'firstLink',
+      '/proyects': 'secondLink',
+      '/projects/certificates': 'thirdLink',
+      '/abilities': 'fourthLink'
+    };
+
+    const activeBaseId = pathMap[currentPath] || localStorage.getItem('activeLinkId') || 'firstLink';
+
     links.forEach(link => {
-      if (link.id === activeLinkId) {
-        link.classList.add('text-rose-500', 'border-b-2', 'border-rose-500');
-        link.classList.remove('text-gray-300');
+      if (link.id === activeBaseId) {
+        link.classList.add('active');
       } else {
-        link.classList.remove('text-rose-500', 'border-b-2', 'border-rose-500');
-        link.classList.add('text-gray-300');
+        link.classList.remove('active');
+      }
+    });
+
+    sidebarLinks.forEach(link => {
+      if (link.id.startsWith(activeBaseId)) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
   }
 
-  // Function to update the active link
-  function setActiveLink2(activeLinkId) {
-    links2.forEach(link => {
-      if (link.id === activeLinkId) {
-        link.classList.add('text-rose-500', 'border-b-2', 'border-rose-500');
-        link.classList.remove('text-gray-300');
-      } else {
-        link.classList.remove('text-rose-500', 'border-b-2', 'border-rose-500');
-        link.classList.add('text-gray-300');
-      }
-    });
-  }
- 
-  // Load the active link from localStorage or set "Sobre mí" as the default
-  let activeLinkId = localStorage.getItem('activeLinkId');
-  if (!activeLinkId) {
-  if (window.location.pathname !== '/') {
-    window.location.href = '/'; 
-  } else {
-    activeLinkId = 'firstLink'; // Default to "Sobre mí"
-  }
-}
-setActiveLink(activeLinkId);
-setActiveLink2(activeLinkId);
- 
-  // Event listeners for each link
-  links.forEach(link => {
+  // Initial set
+  setActiveLinks();
+
+  // Event listeners for links
+  [...links, ...sidebarLinks].forEach(link => {
     link.addEventListener('click', (e) => {
-      
-      const target = e.target as HTMLElement; // Type assertion
-      const targetId = target.id; // Get the ID of the clicked link
-      localStorage.setItem('activeLinkId', targetId); // Save the active link ID to localStorage
-      setActiveLink(targetId); // Update the active link
+      const target = e.currentTarget as HTMLElement;
+      const baseId = target.id.replace('-mobile', '');
+      localStorage.setItem('activeLinkId', baseId);
     });
   });
 
-  // Event listeners for each link
-  links2.forEach(links => {
-    links.addEventListener('click', (e) => {
-      
-      const target = e.target as HTMLElement; // Type assertion
-      const targetId = target.id; // Get the ID of the clicked link
-      localStorage.setItem('activeLinkId', targetId); // Save the active link ID to localStorage
-      setActiveLink2(targetId); // Update the active link
-    });
-  });
-
-  //para slide
+  // Mobile menu logic
   const menuBtn = document.getElementById('menu-btn');
   const sidebar = document.getElementById('sidebar');
   const closeBtn = document.getElementById('close-btn');
 
-  menuBtn.addEventListener('click', () => {
-    // Asegúrate de que el sidebar esté visible antes de la animación
-    sidebar.classList.remove('hidden');
+  menuBtn?.addEventListener('click', () => {
+    sidebar?.classList.remove('hidden');
     setTimeout(() => {
-      sidebar.classList.remove('-translate-x-full');
-    }, 10); // Pequeño retraso para permitir que la animación se inicie correctamente
+      sidebar?.classList.remove('-translate-x-full');
+    }, 10);
   });
 
-  closeBtn.addEventListener('click', () => {
-    sidebar.classList.add('-translate-x-full');
+  closeBtn?.addEventListener('click', () => {
+    sidebar?.classList.add('-translate-x-full');
     setTimeout(() => {
-      sidebar.classList.add('hidden');
-    }, 500); // Espera la duración de la animación antes de ocultarlo completamente
+      sidebar?.classList.add('hidden');
+    }, 500);
   });
 </script>
-<style>
-  .animated-text {
-  
- /* Permite que el tamaño del div se ajuste al contenido */
-    background: linear-gradient(270deg, #ff0000, #ff7300, #ffeb3b, #69ff7b, #00bfff, #9c27b0);
-    background-size: 400%; /* Tamaño del fondo del degradado */
-    -webkit-background-clip: text; /* Aplica el degradado solo al texto */
-    -webkit-text-fill-color: transparent; /* Hace que el texto sea transparente */
-    animation: gradient-animation 5s ease infinite; /* Animación del degradado */
-    position: relative; /* Mantiene el contexto de posición */
-}
 
-@keyframes gradient-animation {
-    0% {
-        background-position: 0% 50%; /* Inicio del degradado */
+<style>
+  .nav-link {
+    @apply transition-all duration-300 ease-in-out text-gray-300 hover:text-rose-500;
+  }
+  
+  .nav-link.active {
+    @apply text-rose-500 border-b-2 border-rose-500;
+  }
+
+  .mobile-nav-link {
+    @apply transition-all duration-300 ease-in-out text-gray-300 hover:text-rose-500;
+  }
+
+  .mobile-nav-link.active {
+    @apply text-rose-500 font-bold;
+  }
+
+  .animated-text {
+    background: linear-gradient(to right, #f43f5e, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: text-shine 4s linear infinite;
+  }
+
+  @keyframes text-shine {
+    to {
+      background-position: 200% center;
     }
-    50% {
-        background-position: 100% 50%; /* Mitad de la animación */
-    }
-    100% {
-        background-position: 0% 50%; /* Fin del degradado */
-    }
-}
+  }
 </style>

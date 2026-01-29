@@ -1,50 +1,74 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const skillsData = [
-    { "nombre": "Tailwind CSS", "descripcion": "1 año de experiencia" },
-    { "nombre": "React", "descripcion": "1 año de experiencia." },
-    { "nombre": "JavaScript", "descripcion": "1 año de experiencia" },
-    { "nombre": "Bootstrap", "descripcion": "1 año de experiencia" },
-    { "nombre": "PostgreSQL", "descripcion": "1 año de experiencia" },
-    { "nombre": "Oracle SQL", "descripcion": "2 años de experiencia" },
-    { "nombre": "NodeJs", "descripcion": "1 año de experiencia" },
-    { "nombre": "FastAPI(FRAMEWORK PYTHON)", "descripcion": "1 año de experiencia" },
+  { "nombre": "Tailwind CSS", "descripcion": "1 año de experiencia" },
+  { "nombre": "React", "descripcion": "1 año de experiencia." },
+  { "nombre": "JavaScript", "descripcion": "1 año de experiencia" },
+  { "nombre": "Bootstrap", "descripcion": "1 año de experiencia" },
+  { "nombre": "PostgreSQL", "descripcion": "1 año de experiencia" },
+  { "nombre": "Oracle SQL", "descripcion": "2 años de experiencia" },
+  { "nombre": "NodeJs", "descripcion": "1 año de experiencia" },
+  { "nombre": "FastAPI (FRAMEWORK PYTHON)", "descripcion": "1 año de experiencia" },
 ];
-
 ---
 
+<Layout title="Habilidades | Josue Nolasco">
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Header Section -->
+    <div class="mb-16 text-center reveal-content">
+      <h2 class="text-rose-500 font-semibold tracking-wide uppercase text-sm mb-2">Expertise</h2>
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-rose-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+        Mis Hard Skills
+      </h1>
+      <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+        Tecnologías y herramientas que domino para construir soluciones digitales robustas y escalables.
+      </p>
+    </div>
 
-<Layout title={`Josue Nolasco`}>
-    <div>
-      <div></div>
-        <div id="animated-section" class="translate-y-10 + transition-transform duration-700">  <!-- Contenedor Principal -->
-          <div class="max-w-4xl mx-auto mt-10">
-      
-              <!-- Título -->
-              <h1 class="text-4xl font-bold text-center text-green-500 mb-10">Mis Hard Skills</h1>
-      
-              <!-- Lista de Habilidades -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      
-                 
-                {skillsData.map((item, index) => (
-        <div class="bg-[#8d2e590c] rounded-lg shadow-lg p-6">
-          <h2 class="text-xl font-semibold text-white mb-2">{item.nombre}</h2>
-          <p class="text-gray-400"> {item.descripcion}</p>
+    <!-- Skills Grid -->
+    <div 
+      id="animated-section" 
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 opacity-0 translate-y-10 transition-all duration-1000 ease-out"
+    >
+      {skillsData.map((item) => (
+        <div class="group relative p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+          <div class="absolute -inset-[1px] bg-gradient-to-r from-rose-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
+          <h2 class="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition-colors">
+            {item.nombre}
+          </h2>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            {item.descripcion}
+          </p>
         </div>
       ))}
-      
-                 
-              </div>
-          </div>
-          </div>
-            </div>
-      
+    </div>
+  </main>
 </Layout>
 
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-	  const section = document.getElementById('animated-section');
-	  section.classList.remove('opacity-0', 'translate-y-10');
-	});
-  </script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.getElementById('animated-section');
+    if (section) {
+      setTimeout(() => {
+        section.classList.remove('opacity-0', 'translate-y-10');
+      }, 100);
+    }
+  });
+</script>
+
+<style>
+  .reveal-content {
+    animation: reveal-anim 0.8s ease-out forwards;
+  }
+
+  @keyframes reveal-anim {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

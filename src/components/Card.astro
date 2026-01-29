@@ -4,17 +4,13 @@ export interface Props {
   title: string;
   description: string;
   icon: string;
-  href: String;
+  href: string;
 }
 
 const { title, description, icon, href } = Astro.props;
-
-
-//probando algo
-const hrefString = String(href);
 ---
 
-<a href={hrefString}>
+<a href={href}>
   <div class="card-container m-5">
     <div class="card border-y-violet-400">
       <div class="front-content flex flex-col">
@@ -23,12 +19,10 @@ const hrefString = String(href);
           {
             title === "BidCraft" && (
               <>
-                <Image src="/img/bidcraft/icons8-reaccionar-40.png" width={40} height={20} alt="Josue Caballero" />
-                <Image src="/img/bidcraft/icons8-django-48.png" width={40} height={20} alt="Josue Caballero" />
-                <Image src="/img/sportblog/mysql.png" width={40} height={20} alt="Josue Caballero" />
-                <Image src="/img/bidcraft/icons8-viento-de-cola-css-48.png" width={40} height={20} alt="Josue Caballero" />
-
-              
+                <Image src="/img/bidcraft/icons8-reaccionar-40.png" width={40} height={20} alt="React" />
+                <Image src="/img/bidcraft/icons8-django-48.png" width={40} height={20} alt="Django" />
+                <Image src="/img/sportblog/mysql.png" width={40} height={20} alt="MySQL" />
+                <Image src="/img/bidcraft/icons8-viento-de-cola-css-48.png" width={40} height={20} alt="Tailwind" />
               </>
             )
           }
@@ -36,13 +30,10 @@ const hrefString = String(href);
           {
             title === "Sport Blog" && (
               <>
-                <Image src="/img/sportblog/1_i3gZBdrn_pk4PiyNahtm5Q.png" width={60} height={30} alt="Josue Caballero" />
-                <Image src="/img/sportblog/icons8-laravel-64.png" width={40} height={20} alt="Josue Caballero" />
-                <Image src="/img/bidcraft/icons8-reaccionar-40.png" width={40} height={20} alt="Josue Caballero" />
-                <Image src="/img/sportblog/icons8-oreja-48.png" width={40} height={20} alt="Josue Caballero" />
-
-               
-    
+                <Image src="/img/sportblog/1_i3gZBdrn_pk4PiyNahtm5Q.png" width={60} height={30} alt="Astro" />
+                <Image src="/img/sportblog/icons8-laravel-64.png" width={40} height={20} alt="Laravel" />
+                <Image src="/img/bidcraft/icons8-reaccionar-40.png" width={40} height={20} alt="React" />
+                <Image src="/img/sportblog/icons8-oreja-48.png" width={40} height={20} alt="Tailwind" />
               </>
             )
           }
@@ -50,25 +41,21 @@ const hrefString = String(href);
           {
             title === "Uber Eats" && (
               <>
-           <Image src="/img/ubereats/icons8-javascript-48.png" width={40} height={20} alt="Josue Caballero" />
-                <Image src="/img/ubereats/icons8-php-48.png" width={40} height={20} alt="Josue Caballero" />
-                <Image src="/img/sportblog/icons8-oreja-48.png" width={40} height={20} alt="Josue Caballero" />
-
+                <Image src="/img/ubereats/icons8-javascript-48.png" width={40} height={20} alt="JS" />
+                <Image src="/img/ubereats/icons8-php-48.png" width={40} height={20} alt="PHP" />
+                <Image src="/img/sportblog/icons8-oreja-48.png" width={40} height={20} alt="Tailwind" />
               </>
             )
           }
 
-          
-{
-  title === "Sistema Contable" && (
-    <>
- <Image src="https://img.icons8.com/?size=100&id=VLKafOkk3sBX&format=png&color=000000" width={40} height={20} alt="Josue Caballero" />
- <Image src="https://img.icons8.com/color/48/terraform.png" width={40} height={20} alt="Josue Caballero" />
-
-
-    </>
-  )
-}
+          {
+            title === "Sistema Contable" && (
+              <>
+                <Image src="https://img.icons8.com/?size=100&id=VLKafOkk3sBX&format=png&color=000000" width={40} height={20} alt="Accounting" />
+                <Image src="https://img.icons8.com/color/48/terraform.png" width={40} height={20} alt="Terraform" />
+              </>
+            )
+          }
         </div>
       </div>
       <div class="content">
@@ -82,7 +69,6 @@ const hrefString = String(href);
 </a>
 
 <style>
-  /* From Uiverse.io by gharsh11032000 */
   .card-container {
     width: 300px;
     height: 300px;
@@ -112,7 +98,7 @@ const hrefString = String(href);
     font-size: 32px;
     font-weight: 700;
     opacity: 1;
-    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%);
+    background: linear-gradient(-45deg, #f43f5e 0%, #8b5cf6 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -131,7 +117,7 @@ const hrefString = String(href);
     justify-content: center;
     text-align: center;
     gap: 10px;
-    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%);
+    background: linear-gradient(-45deg, #f43f5e 0%, #8b5cf6 100%);
     color: #e8e8e8;
     padding: 20px;
     line-height: 1.5;
@@ -158,17 +144,3 @@ const hrefString = String(href);
     opacity: 0;
   }
 </style>
-
-<script>
-  // Puedes utilizar esto dentro de un componente Astro (.astro o .js)
-  const images = import.meta.glob("../img/ubereats/*.{png,jpg,jpeg,gif,svg}", {
-    eager: true,
-  });
-
-  // Luego puedes mapearlas para utilizarlas
-  const imageArray = Object.entries(images).map(([path, module]) => ({
-    path, // Ruta de la imagen
-    src: module, // Fuente de la imagen importada
-  }));
-  console.log(imageArray[0].path);
-</script>

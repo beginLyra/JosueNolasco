@@ -1,13 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
-
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
+
 export async function getStaticPaths() {
   const projectEntries = await getCollection('projects');
   const cursosEntries = await getCollection('courses');
 
-  // Crear un array combinado con las rutas para proyectos y cursos
   const paths = [
     ...projectEntries.map(entry => ({
       params: { slug: entry.slug }, props: { entry },
@@ -37,62 +36,86 @@ const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 ---
 
-
 <Layout title={`${entry.data.title} - Josue Nolasco`}>
-  <div id="animated-section" class="max-w-4xl mx-auto px-6 py-10 bg-gray-900 rounded-lg shadow-lg translate-y-10  transition-transform duration-700">
-    <h1 class="text-5xl font-bold text-green-500 mb-6 text-center">{entry.data.title}</h1>
-    <p class="text-xl text-gray-300 mb-8 text-center">{entry.data.description}</p>
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <div id="animated-section" class="relative overflow-hidden p-6 md:p-10 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl translate-y-10 transition-all duration-1000 ease-out opacity-0">
+      
+      <!-- Content -->
+      <div class="relative z-10">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 text-center bg-gradient-to-r from-rose-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
+          {entry.data.title}
+        </h1>
+        <p class="text-xl text-gray-400 mb-10 text-center max-w-2xl mx-auto leading-relaxed">
+          {entry.data.description}
+        </p>
 
-    <nav class="toc mb-10 bg-gray-800 p-6 rounded-lg shadow-md">
-        <h2 class="text-3xl font-semibold mb-4 text-green-400 text-center">Tabla de contenido</h2>
-        <ul class="space-y-2">
-            {headings.map((heading) => (
-                <li class={`toc-level-${heading.depth} ml-${(heading.depth - 1) * 4}`}>
-                    <a href={`#${heading.slug}`} class="text-gray-200 hover:text-orange-500 transition-colors duration-200 ease-in-out">
-                     
-                        {heading.text}
-                    </a>
-                    
+        {headings.length > 0 && (
+          <nav class="toc mb-12 bg-white/5 p-6 rounded-xl border border-white/10">
+            <h2 class="text-2xl font-bold mb-4 text-rose-400 text-center uppercase tracking-wider">Tabla de contenido</h2>
+            <ul class="space-y-3">
+              {headings.map((heading) => (
+                <li class={`toc-level-${heading.depth} ml-${Math.max(0, (heading.depth - 1) * 4)}`}>
+                  <a href={`#${heading.slug}`} class="text-gray-300 hover:text-rose-400 transition-colors duration-300 flex items-center gap-2">
+                    <div class="w-1 h-1 bg-rose-500 rounded-full"></div>
+                    {heading.text}
+                  </a>
                 </li>
-            ))}
-        </ul>
-    </nav>
+              ))}
+            </ul>
+          </nav>
+        )}
 
-    <article class="prose prose-orange lg:prose-lg max-w-none">
+        <article class="prose prose-invert lg:prose-xl max-w-none prose-rose prose-headings:text-rose-400 prose-a:text-rose-500 prose-strong:text-white prose-li:text-gray-300">
+          <Content />
+        </article>
 
-        <Content />
-    </article>
-  <div>
-    <img src={entry.data.img} alt="">
-
-    
-  </div>
+        {entry.data.img && (
+          <div class="mt-12 rounded-xl overflow-hidden border border-white/10 shadow-lg group">
+            <img src={entry.data.img} alt={entry.data.title} class="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+          </div>
+        )}
+      </div>
+    </div>
   </div>
 </Layout>
 
-<style is:global>
-  .prose h1 { @apply text-3xl font-bold text-green-300 mb-4 mt-8; }
-  .prose h2 { @apply text-2xl font-semibold text-green-300 mb-4 mt-8; }
-  .prose h3 { @apply text-xl font-semibold text-green-300 mb-3 mt-6; }
-  .prose h4 { @apply text-xs font-semibold text-green-300 mb-3 mt-6; }
-  .prose p { @apply mb-4 text-white; }
-  .prose ul { @apply list-disc list-inside mb-4; }
-  .prose ol { @apply list-decimal list-inside mb-4; }
-  .prose li { @apply mb-2 text-green-300;  }
-  .prose strong { @apply text-white; }
-  .prose a { @apply text-orange-600 hover:text-orange-800 underline; }
-  .prose code { @apply bg-orange-100 text-orange-800 px-1 py-0.5 rounded; }
-  .prose pre { @apply bg-gray-100 p-4 rounded-lg overflow-x-auto; }
-  .prose pre code { @apply bg-transparent text-green-500; }
-  .prose blockquote { @apply border-l-4 border-orange-500 pl-4 italic text-green-500; }
-  .prose table { @apply w-full border-collapse border border-orange-200 mb-4; }
-  .prose th, .prose td { @apply border border-orange-200 p-2; }
-  .prose th { @apply bg-orange-100 font-semibold; }
-</style>
-
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-	  const section = document.getElementById('animated-section');
-	  section.classList.remove('opacity-0', 'translate-y-10');
-	});
-  </script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.getElementById('animated-section');
+    if (section) {
+      setTimeout(() => {
+        section.classList.remove('opacity-0', 'translate-y-10');
+      }, 100);
+    }
+  });
+</script>
+
+<style is:global>
+  /* Personalización extra para el contenido de Markdown */
+  .prose h1, .prose h2, .prose h3 {
+    @apply font-bold tracking-tight;
+    background: linear-gradient(to right, #f43f5e, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .prose p {
+    @apply text-gray-300 leading-relaxed;
+  }
+
+  .prose code {
+    @apply bg-rose-500/10 text-rose-400 px-1.5 py-0.5 rounded border border-rose-500/20 font-mono text-sm;
+  }
+
+  .prose pre {
+    @apply bg-white/5 border border-white/10 rounded-xl p-4;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-rose-500 bg-rose-500/5 py-2 pl-6 italic text-gray-300 rounded-r-lg;
+  }
+
+  .prose a {
+    @apply text-rose-500 hover:text-rose-400 underline decoration-rose-500/30 hover:decoration-rose-500 transition-all font-medium;
+  }
+</style>

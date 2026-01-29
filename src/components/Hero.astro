@@ -1,70 +1,114 @@
 ---
 import { Image } from 'astro:assets';
 ---
-<div id="animated-section" class="p-10 md:p-0 flex items-center justify-center bg-gray-900 opacity-0 translate-y-10  transition-transform duration-700" id="animated-section">
-  <div class="grid lg:grid-cols-2 grid-cols-1 items-center  gap-10 md:px-10">
-      <div>
-          <h1 class="mb-2 text-3xl font-bold text-white"><span class="text-green-500">Hola,</span> Soy Un Full Stack Developer y apasionado por las base de datos </h1>
-<p class="mb-6 text-white">
-  Mi nombre es <strong>Josué David Nolasco Aguilera</strong>, desarrollador Full Stack de Tegucigalpa, Honduras, e
-  <strong>Ingeniero en Sistemas graduado</strong> de la Universidad Nacional Autónoma de Honduras (UNAH). Cuento con
-  experiencia en el desarrollo de aplicaciones web, enfocado en la creación de soluciones eficientes y bien
-  estructuradas, así como interfaces limpias, funcionales y centradas en el usuario; me apasiona la tecnología,
-  especialmente el área de <strong>bases de datos y Data Science</strong>, abarcando desde el diseño y modelado de datos
-  hasta su optimización y análisis, y me mantengo actualizado en el uso de
-  <strong>herramientas de inteligencia artificial aplicadas al desarrollo de software</strong>, además de tecnologías
-  relacionadas con la <strong>containerización y despliegue de aplicaciones mediante Docker</strong>, lo que me permite
-  optimizar los procesos de desarrollo, pruebas y puesta en producción.
-</p>
-          <div class="flex flex-wrap  sm:flex-nowrap gap-9">
+<div id="hero-section" class="flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8 opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 grid-cols-1 items-center gap-12">
+    <!-- Left Column: Content -->
+    <div class="space-y-8 reveal-hero">
+      <div class="space-y-2">
+        <h2 class="text-rose-500 font-semibold tracking-wide uppercase text-sm">Desarrollador Full Stack</h2>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+          Hola, soy <span class="bg-gradient-to-r from-rose-500 to-purple-500 bg-clip-text text-transparent">Josué Nolasco</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-400 font-medium italic">
+          Ingeniero en Sistemas & Apasionado por las Bases de Datos
+        </p>
+      </div>
 
-            <div class="flex flex-col w-full items-center sm:items-start justify-center gap-1 rounded-2xl p-5 py-3 font-semibold text-white bg-rose-700">
-              <div class="text-green-500">IDIOMAS</div>
-              <div class="flex items-center gap-2">
-                <Image src="/img/idiomas/reino-unido.png" width={30} height={30} alt="Josue Caballero" />
-                <div>Inglés: Intermedio</div>
-              </div>
-          
-              <div class="flex items-center gap-2">
-                <Image src="/img/idiomas/espana.png" width={30} height={30} alt="Josue Caballero" />
-                <div>Español: Nativo</div>
-              </div>
-            </div>
-          
-            <div class="flex flex-col w-full items-center sm:items-start justify-center gap-1 rounded-2xl p-5 py-3 font-semibold text-white hover:bg-rose-700">
-              <div class="text-green-500">SOFT SKILLS</div>
-          
-              <div class="flex items-center gap-2">
-                <div>Comunicación</div>
-              </div>
-          
-              <div class="flex items-center gap-2">
-                <div>Adaptabilidad</div>
-              </div>
-          
-              <div class="flex items-center gap-2">
-                <div>Creatividad</div>
-              </div>
-          
-              <div class="flex items-center gap-2">
-                <div>Integridad</div>
-              </div>
-            </div>
+      <p class="text-gray-300 text-lg leading-relaxed max-w-2xl">
+        Desarrollador de Tegucigalpa, Honduras, especializado en crear soluciones web eficientes y centradas en el usuario. 
+        Enfocado en <strong class="text-white">Bases de Datos, Data Science y Automatización con IA</strong>.
+      </p>
 
-            
-          
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Idiomas Glass Card -->
+        <div class="group relative p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="absolute -inset-[1px] bg-gradient-to-r from-rose-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
+          <h3 class="text-rose-400 font-bold mb-3 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
+            IDIOMAS
+          </h3>
+          <div class="space-y-2 text-gray-300">
+            <div class="flex items-center gap-3">
+              <Image src="/img/idiomas/reino-unido.png" width={24} height={24} alt="UK" class="rounded-sm" />
+              <span>Inglés: <span class="text-white font-medium">Intermedio</span></span>
+            </div>
+            <div class="flex items-center gap-3">
+              <Image src="/img/idiomas/espana.png" width={24} height={24} alt="ES" class="rounded-sm" />
+              <span>Español: <span class="text-white font-medium">Nativo</span></span>
+            </div>
           </div>
-          
+        </div>
+
+        <!-- Soft Skills Glass Card -->
+        <div class="group relative p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="absolute -inset-[1px] bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
+          <h3 class="text-purple-400 font-bold mb-3 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            SOFT SKILLS
+          </h3>
+          <ul class="grid grid-cols-2 gap-2 text-sm text-gray-300">
+            <li class="flex items-center gap-2">
+              <div class="w-1 h-1 bg-purple-500 rounded-full"></div> Comunicación
+            </li>
+            <li class="flex items-center gap-2">
+              <div class="w-1 h-1 bg-purple-500 rounded-full"></div> Adaptabilidad
+            </li>
+            <li class="flex items-center gap-2">
+              <div class="w-1 h-1 bg-purple-500 rounded-full"></div> Creatividad
+            </li>
+            <li class="flex items-center gap-2">
+              <div class="w-1 h-1 bg-purple-500 rounded-full"></div> Integridad
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="flex justify-center">
-          <img src="/img/avatar_josue.png" alt="" class="md:size-96 size-72 rounded-full" />
+    </div>
+
+    <!-- Right Column: Avatar -->
+    <div class="flex justify-center lg:justify-end reveal-hero-delayed">
+      <div class="relative group">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-rose-500 to-purple-500 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700 animate-pulse"></div>
+        <img 
+          src="/img/avatar_josue.png" 
+          alt="Josué Nolasco" 
+          class="relative w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-white/10 object-cover shadow-2xl transition-transform duration-700 group-hover:scale-105"
+        />
       </div>
+    </div>
   </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const section = document.getElementById('animated-section');
-  section.classList.remove('opacity-0', 'translate-y-10');
-});
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.getElementById('hero-section');
+    if (section) {
+      setTimeout(() => {
+        section.classList.remove('opacity-0', 'translate-y-10');
+      }, 100);
+    }
+  });
 </script>
+
+<style>
+  .reveal-hero {
+    animation: reveal-anim 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  .reveal-hero-delayed {
+    animation: reveal-anim 1s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  @keyframes reveal-anim {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
